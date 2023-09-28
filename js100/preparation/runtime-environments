@@ -1,0 +1,13 @@
+Runtime Environments
+
+A runtime environment is where your program will be executed. JavaScript code may be executed in one of two runtime environments: a browser's runtime environment. the Node runtime environment.
+
+The programming language that refers to a variety of different ways to tell a computer what to do. In a strict sense, a programming language is a set of syntactic and semantic rules that describe a formal language and must be able to express the steps that a machine needs to perform to convert some input to an output.
+
+Compilers and Interpreters both translate a program written in a specific programming language to something that the computer can understand or execute, typically referred to as "1s and 0s" since all information on digital computers gets stored as 1s and 0s.
+
+An Application Programming Interface accesses an operating system's resources, it describes the scheme and format that a programmer can use to securely access resources, with the operating system acting as an intermediary. The compiler/interpreter and the operating system's APIs together make up a runtime environment.
+Naming Conventions
+Use camelCase formatting for most variable and function names. Such names begin with a lowercase letter. If the name contains multiple words, each subsequent word should begin with an uppercase letter: let answerToUltimateQuestion = 42; 
+Use uppercase names with underscores (SCREAMING_SNAKE_CASE) to represent constants that serve as unchanging configuration values in your program.
+

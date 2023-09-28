@@ -1,0 +1,6 @@
+Abstraction
+
+Programmers operate at a lower-level of abstraction by using a programming language like JavaScript. JavaScript, in turn, gets processed by a runtime environment (sometimes called an engine) written in some other still-lower-level languages like C++. In turn, these engines convert JavaScript code into other, even lower-level code until, after several iterations, the original JavaScript code ends up as a series of 1s and 0s that the computer understands. In effect, every programming language requires lower level layers of code that make it easy to use.
+
+There are also higher-level abstractions. Some JavaScript programmers use the language to design and build tools that operate at a higher level, including libraries and frameworks like jQuery and React that are popular today. These tools let JavaScript developers build programs on top of existing components, without needing to know how to implement the features they provide.
+

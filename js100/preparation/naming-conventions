@@ -1,0 +1,5 @@
+Naming Conventions
+
+Use camelCase formatting for most variable and function names. Such names begin with a lowercase letter. If the name contains multiple words, each subsequent word should begin with an uppercase letter: let answerToUltimateQuestion = 42; 
+Use uppercase names with underscores (SCREAMING_SNAKE_CASE) to represent constants that serve as unchanging configuration values in your program.
+

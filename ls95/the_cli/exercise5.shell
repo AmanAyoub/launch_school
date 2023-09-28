@@ -1,0 +1,21 @@
+/*
+You can get more information about what a command does, how it works, and which flags you can use by referencing the manual for that command. To read the manual pages (typically called manpages) for a command, use the man command
+*/
+
+man touch
+TOUCH(1)                    User Commands                   TOUCH(1)
+
+
+
+NAME
+       touch - change file timestamps
+
+SYNOPSIS
+       touch [OPTION]... FILE...
+
+DESCRIPTION
+       Update  the access and modification times of each FILE to the
+       current time.
+...
+
+To exit man, you can type the q key.

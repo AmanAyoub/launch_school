@@ -1,0 +1,22 @@
+/*
+Let's go over the following commands: cd, ls, and pwd.
+*/
+
+// To see what our current directory is we use (pwd) command:
+
+aman@aman-Latitude-3510:~$ pwd
+/home/aman
+// The result should be something like (/home/aman) as output
+
+// To change our directory we use (cd) command:
+
+cd ..
+pwd
+/home
+// The result should be something like this, now the current directory is (home) directory
+
+// To see what directory and files exist in the current directory:
+
+ls
+aman
+// Here we only have (aman) directory

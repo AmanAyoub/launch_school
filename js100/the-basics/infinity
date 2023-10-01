@@ -1,0 +1,15 @@
+Infinity and -Infinity
+
+Infinity is a number that is so large, it can't be written down. If you start counting 1, 2, 3, 4, and so on, saying a new number every second and keep going for the next 37 trillion years, you will not ever reach the value of Infinity. There is always a larger value:
+
+> 1 / 0
+= Infinity
+
+Returns Infinity, which indicates a number of infinite magnitude.
+Infinity has a negative counterpart, -Infinity, that represents an infinite value that is less than 0. It most commonly arises when dividing a negative number by 0:
+
+> -1 / 0
+= -Infinity
+
+As with NaN, Infinity and -Infinity are considered by JavaScript to be numbers.
+

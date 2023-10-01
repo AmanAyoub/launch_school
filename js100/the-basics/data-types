@@ -1,0 +1,65 @@
+Data Types
+
+JavaScript has five primitive data types:
+String
+Number
+Undefined
+Null
+Boolean
+
+Every type that is not a primitive type is an object type.
+Different data types represent different kinds of data. Data types help programmers and their programs determine what they can and cannot do with a given piece of data.
+String
+A string is a list of characters in a specific sequence. In programming, we often have to work with text data like names, messages, and descriptions. JavaScript uses strings to represent such data. You write string literals with either single quotes ('hi there') or double quotes ("hi there") on either side of the text:
+
+> 'He said, "Hi there!"'    // with single quotes
+= 'He said, "Hi there!"'
+
+> "He said, \"Hi there!\""  // with double quotes and escaping
+= 'He said, "Hi there!"'
+
+Template literals, they use backticks (`) and enable an operation called string interpolation. String interpolation is a handy way to merge JavaScript expressions with strings. The basic syntax is:
+
+`Blah ${expression} blah.`
+
+JavaScript replaces the ${expression} substring with the value of the expression inside the braces: it interpolates the expression's value.
+Numbers
+The Number data type represents all kinds of numbers in JavaScript. Some programming languages have different data types for different number types, such as integers, floating-point numbers, and fixed-point (decimal) numbers. JavaScript has a single data type, Number, that represents all types of numbers. 
+
+1, 2, -3, 4.5, -6.77, 234891234 // Examples of numeric literals
+Booleans
+A boolean value is one that can either be TRUE or FALSE. If you need to know “yes” or “no” about something, then you would want to use the boolean function:
+
+> 5 === 5
+= true
+
+> 100 < 99
+= false
+
+Undefined
+When a variable is not defined, its value is given by undefined. We can describe undefined as representing the absence of a value. We can also explicitly use the literal undefined:
+
+setAgeFor('Pete', undefined);
+
+> let foo
+= undefined
+
+> foo
+= undefined
+
+
+Null
+Null is a special value that represents an empty or unknown value. For example, let number = null; The code above suggests that the number variable is empty at the moment and may have a value later.
+
+The typeof Operator
+To see what type a particular value has, you can use the typeof operator. typeof returns a string that contains the type of its operand's value. For example:
+
+> typeof 1
+= 'number'
+
+> typeof 'foo'
+= 'string'
+
+> typeof true
+= 'boolean'
+

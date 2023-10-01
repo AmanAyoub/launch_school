@@ -1,0 +1,4 @@
+NaN
+
+Some operations, such as 0 / 0, return the value NaN, which stands for "Not a Number." This special value signals an illegal operation on numbers, such as 0 / 0, or some other operation that doesn't make sense, such as 3 + undefined.
+

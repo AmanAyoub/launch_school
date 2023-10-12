@@ -13,7 +13,7 @@ let netflix = {
 	more: ['Cast Away', 'The Irishman', 'Trees of Peace'],
 	kids: ['Tom & Jerry', 'Ben 10', 'Panda'],
 	warning: () => {
-		console.log(`Please watch ${netflix.kids} movies, if you're under 18.`)
+		console.log(`Pardon the interruption, please watch ${netflix.kids} movies, if you're under 18.`)
 	}
 }
 

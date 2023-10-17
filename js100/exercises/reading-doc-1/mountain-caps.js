@@ -7,4 +7,3 @@ function capitalize(string) {
 }
 console.log(capitalize('aman')); // returns Aman
 
-

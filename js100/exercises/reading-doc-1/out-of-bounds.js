@@ -2,3 +2,4 @@
 
 let netflix = ['The Terminal', 'Cast Away', 'Trees of Peace'];
 console.log(netflix[8]); // returns undefined
+console.log(netflix[5]); // returns undefined

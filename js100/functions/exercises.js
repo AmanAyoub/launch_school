@@ -8,3 +8,4 @@ let secondNum = readlineSync.question("Enter the second number:\n")
 let result = Number(firstNum) * Number(secondNum);
 console.log(result);
 
+

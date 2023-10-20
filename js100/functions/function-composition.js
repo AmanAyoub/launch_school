@@ -10,4 +10,3 @@ function subtract(num1, num2) {
 }
 console.log(subtract(12, 6)); // returns 6
 console.log(subtract(25, 5)); // returns 20
-

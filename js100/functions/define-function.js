@@ -19,4 +19,3 @@ let sayBye = () => {
 	console.log('Bye');
 }
 sayBye(); // returns Bye
-

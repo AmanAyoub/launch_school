@@ -10,15 +10,27 @@ console.log('Aman ' + 'Ayoub');
 // tens place is 3
 // ones place is 6
 //
-let number = 4936
-let ones = number % 10
-console.log(ones); // returns 6
-number = (number - ones) / 10
-let tens = number % 10
-console.log(tens); // returns 3
-number = (number - tens) / 10
-let hundreds = number % 10
-console.log(hundreds); // returns 9
-let thousands = (number - hundreds) / 10
-console.log(thousands); // returns 4
+let number = 4936;
+console.log(`Number: ${number}`);
+
+let ones = number % 10;
+number = (number - ones) / 10;
+
+console.log(`Ones: ${ones}`);
+console.log('Number: ' + number);
+
+let tens = number % 10;
+number = (number - tens) / 10;
+
+console.log(`Tens: ${tens}`);
+console.log(`Number: ${number}`);
+
+let hundreds = number % 10;
+number = (number - hundreds) / 10;
+
+console.log(`Hundreds: ${hundreds}`);
+console.log(`Number: ${number}`);
+
+let thousonds = number;
+console.log(`Thousonds: ${thousonds}`);
 

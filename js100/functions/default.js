@@ -7,4 +7,3 @@ function sayHi(name = 'Aman') {
 
 sayHi('Sahil'); // returns Hello, Sahil
 sayHi(); // returns Hello, Aman
-

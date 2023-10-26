@@ -11,3 +11,5 @@ game(); // returns Let's play football
 
 // We cannot access nested function:
 football(); // ReferenceError: football is not defined
+
+

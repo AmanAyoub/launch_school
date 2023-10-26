@@ -8,4 +8,3 @@ function sayBye() {
 
 // To access the function:
 sayBye(); // returns Bye Aman
-

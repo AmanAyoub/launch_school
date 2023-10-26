@@ -16,5 +16,3 @@ sayBye() // returns Bye, Sahil
 
 // But we cannot access local variables outside the function block
 console.log(person); // ReferenceError: person is not defined
-
-

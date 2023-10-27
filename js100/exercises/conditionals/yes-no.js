@@ -8,4 +8,3 @@ if (randomNumber === 1) {
 	// If randomNumber doesn't equals to 1, this block will be executed.
 	console.log('No.');
 }
-

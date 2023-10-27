@@ -10,4 +10,3 @@ if (weather === 'sunny') {
 } else {
   console.log("Let's stay inside.");
 }
-

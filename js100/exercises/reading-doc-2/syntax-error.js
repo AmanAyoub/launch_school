@@ -6,4 +6,3 @@ if ((currentSpeed > speedLimit) && ((currentSpeed - speedLimit) > 5)) {
     'that computers don\'t have to be that good to be much better." ' +
     '-- Marc Andreessen');
 }
-

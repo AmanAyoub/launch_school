@@ -4,4 +4,3 @@ let netflix = ['The Terminal', 'Cast Away', 'Trees of Peace'];
 
 console.log(netflix[2]); // returns Trees of Peace
 console.log(netflix[0]); // returns The Terminal
-

@@ -13,10 +13,3 @@ console.log(number === 25); // returns true
 
 number = '25';
 console.log(number === 25); // returns false
-
-
-
-
-
-
-

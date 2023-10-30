@@ -2,4 +2,3 @@
 
 let string = 'Aman Ayoub';
 console.log(string.toLowerCase()); // returns aman ayoub
-

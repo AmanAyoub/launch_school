@@ -7,7 +7,7 @@ let vocabulary = [
 ];
 
 for (let i = 0; i < vocabulary.length; i++) {
-	let subArray = vocabulary[i]
+	let subArray = vocabulary[i];
 
 	for (let x = 0; x < subArray.length; x++) {
 		console.log(subArray[x]);

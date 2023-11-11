@@ -9,3 +9,5 @@ function filter(input) {
 
 console.log(filter(evenNumbers)); // true
 console.log(filter(games)); // false
+
+

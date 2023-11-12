@@ -16,4 +16,3 @@ function includes(city, map) {
 
 console.log(includes('Kabul', destinations)); // false
 console.log(includes('Rome', destinations)); // true
-

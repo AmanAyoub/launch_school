@@ -12,4 +12,7 @@ function myFunction() {
 
 console.log(myFunction()); // ReferenceError: Cannot access 'a' before initialization
 
-// It raises a ReferenceError because we cannot access a variable before initializing it.
+// The reason why it raises a ReferenceError is because variables declared with let keyword
+// doesn't occur until the code runs, and then on line 8, it creates a new variable named a,
+// since we're trying to access it before line 8, so we cannot access a variable before initializing it.
+

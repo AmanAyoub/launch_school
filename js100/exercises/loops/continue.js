@@ -16,6 +16,4 @@ for (let i = 0; i < cities.length; i++) {
 // 5
 // 6
 // 6
-// 7
-
-	
+// 7	

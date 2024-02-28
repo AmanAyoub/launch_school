@@ -1,4 +1,5 @@
-// The isArray() method returns true if a variable holds an array, otherwise false:
+// The isArray() method returns true if a variable holds an array,
+// otherwise false:
 
 let evenNumbers = [2, 3, 4, 6];
 let games = 'Football, Cricket, and Basketball';

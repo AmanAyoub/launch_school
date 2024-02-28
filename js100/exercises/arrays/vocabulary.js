@@ -1,4 +1,5 @@
-// To iterate over the vocabulary array and its sub-arrays we should write two nested for loops:
+// To iterate over the vocabulary array and its sub-arrays
+// we should write two nested for loops:
 
 let vocabulary = [
   ['happy', 'cheerful', 'merry', 'glad'],
@@ -6,12 +7,12 @@ let vocabulary = [
   ['excited', 'eager', 'enthused', 'animated']
 ];
 
-for (let i = 0; i < vocabulary.length; i++) {
-	let subArray = vocabulary[i];
+for (let index = 0; index < vocabulary.length; index++) {
+  let subArray = vocabulary[index];
 
-	for (let x = 0; x < subArray.length; x++) {
-		console.log(subArray[x]);
-	}
+  for (let x = 0; x < subArray.length; x++) {
+    console.log(subArray[x]);
+  }
 }
 
 // logs:
@@ -21,4 +22,3 @@ for (let i = 0; i < vocabulary.length; i++) {
 // glad
 // tired
 // etc...
-

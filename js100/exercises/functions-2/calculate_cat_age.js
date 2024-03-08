@@ -17,8 +17,5 @@ function catAge(humanAge) {
   return catAge;
 }
 
-console.log(catAge(0)); // 0
-console.log(catAge(1)); // 15
-console.log(catAge(2)); // 24
 console.log(catAge(3)); // 28
-console.log(catAge(4)); // 32
+console.log(catAge(10)); // 56

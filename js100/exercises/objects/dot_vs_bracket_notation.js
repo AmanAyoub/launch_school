@@ -26,4 +26,3 @@ Here, the code is using square brackets to set a property on the ocean object.
 By using ocean[prefix], the value of the prefix variable ("indian") is used as the property name.
 So, the output will be { Indian: 'Pacific' }.
 */
-

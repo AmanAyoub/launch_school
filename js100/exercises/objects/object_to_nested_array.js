@@ -18,3 +18,4 @@ This code creates an array called nestedPerson.
 It loops through each property in the person object and pushes a new array
 into nestedPerson for each property. Each new array contains the property
 name (key) and its corresponding value from the person object.
+*/

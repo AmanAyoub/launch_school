@@ -2,11 +2,11 @@
 
 let nestedArray = [['title', 'Duke'], ['name', 'Nukem'], ['age', 33]];
 
-let obejct = {};
+let person = {};
 for (let i = 0; i < nestedArray.length; i++) {
-  obejct[nestedArray[i][0]] = nestedArray[i][1]
+  person[nestedArray[i][0]] = nestedArray[i][1]
 }
 
-console.log(obejct);
+console.log(person);
 // Expected output:
 // { title: 'Duke', name: 'Nukem', age: 33 }

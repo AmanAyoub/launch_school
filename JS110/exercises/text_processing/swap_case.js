@@ -24,7 +24,7 @@ function swapCase(string) {
     if (char === char.toLowerCase()) return char.toUpperCase();
     if (char === char.toUpperCase()) return char.toLowerCase();
   }).join('');
-}
+} 
 
 console.log(swapCase('CamelCase'));              // "cAMELcASE"
 console.log(swapCase('Tonight on XYZ-TV'));      // "tONIGHT ON xyz-tv"

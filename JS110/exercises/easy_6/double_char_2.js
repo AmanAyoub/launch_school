@@ -6,7 +6,7 @@ digits, punctuation, or whitespace.
 
 function doubleConsonants(string) {
   let doubledCharacters = string.split('').map(char => {
-    if (char.match(/\w/g) && !['a', 'e', 'i', 'o', 'u'].includes(char)) return char + char;
+    if (char.match(/\w/g) && !['a', 'e', 'i', 'o', 'u'].includes(char)) return char.repeat(2);
     return char;
   });
 

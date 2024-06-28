@@ -20,7 +20,7 @@ fiveNumbers.push(Number(readline.prompt()));
 
 console.log("Enter the 5th number:");
 fiveNumbers.push(Number(readline.prompt()));
-
+ 
 console.log("Enter the last number:");
 let lastNumber = Number(readline.prompt());
 

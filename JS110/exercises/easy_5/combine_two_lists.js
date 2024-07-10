@@ -4,14 +4,12 @@
 
 
 function interleave(arr1, arr2) {
-  let combinedArray = [];
+  let combinedArray = arr1.reduce((acc, _, index) => {
+    acc.push(arr1[index], arr2[index]);
+    return acc;
+  }, []);
 
-  arr1.forEach((_, index) => {
-    combinedArray.push(arr1[index]);
-    combinedArray.push(arr2[index]);
-  });
-
-  console.log(combinedArray);
+  return combinedArray;
 }
 
-interleave([1, 2, 3], ['a', 'b', 'c']);    // [1, "a", 2, "b", 3, "c"]
+console.log(interleave([1, 2, 3], ['a', 'b', 'c']));    // [1, "a", 2, "b", 3, "c"]

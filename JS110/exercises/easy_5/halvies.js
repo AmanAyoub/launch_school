@@ -6,8 +6,10 @@ odd number of elements, place the middle element in the first half array.
 */
 
 function halvsies(array) {
-  let firstHalf = array.slice(0, Math.round(array.length / 2));
-  let secondHalf = array.slice(Math.round(array.length / 2));
+  let middleIndex = Math.round(array.length / 2)
+  let firstHalf = array.slice(0, middleIndex);
+  
+  let secondHalf = array.slice(middleIndex);
   let result = [firstHalf, secondHalf];
 
   return result

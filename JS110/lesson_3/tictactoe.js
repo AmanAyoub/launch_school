@@ -11,6 +11,9 @@ function prompt(message) {
 function displayBoard(board) {
   console.clear();
 
+  prompt(`Computer wins: ${computerWins}`);
+  prompt(`Player wins: ${playerWins}`);
+
   console.log('');
   console.log('     |     |');
   console.log(`  ${board['1']}  |  ${board['2']}  |  ${board['3']}  `);
@@ -72,7 +75,7 @@ function detectWinner(board) {
     [1, 2, 3], [4, 5, 6], [7, 8, 9], // rows
     [1, 4, 7], [2, 5, 8], [3, 6, 9], // columns
     [1, 5, 9], [3, 5, 7]             // diagonals
-  ]
+  ];
 
   for (let line = 0; line < winningLines.length; line++) {
     let [sq1, sq2, sq3] = winningLines[line];
@@ -84,7 +87,7 @@ function detectWinner(board) {
     } else if (board[sq1] === COMPUTER_MARKER &&
       board[sq2] === COMPUTER_MARKER &&
       board[sq3] === COMPUTER_MARKER) {
-        return "Computer"
+        return "Computer";
     }
   }
 
@@ -107,7 +110,7 @@ while (true) {
   let board = initializeBoard();
 
   while (true) {
-    displayBoard(board);
+    displayBoard(board, computerWins, playerWins);
 
     playerChoosesSquare(board);
     if (someoneWon(board) || boardFull(board)) break;
@@ -116,26 +119,22 @@ while (true) {
     if (someoneWon(board) || boardFull(board)) break;
   }
 
-  displayBoard(board);
-
   if (someoneWon(board)) {
+    if (detectWinner(board) === 'Player') playerWins += 1;
+    if (detectWinner(board) === 'Computer') computerWins += 1;
+  }
+
+  displayBoard(board, computerWins, playerWins);
+
+  // Print the winner:
+  if (playerWins === TARGET_WINS || computerWins === TARGET_WINS) {
     prompt(`${detectWinner(board)} won!`);
-  } else {
-    prompt("It's a tie!");
+
+    // Exit the loop:
+    prompt(`Play again? (y or n)`);
+    let answer = readline.question();
+    if (answer !== 'y') break;
   }
-
-  if (detectWinner(board) === 'Player') {
-    playerWins += 1;
-  } else if (detectWinner(board) === 'Computer') {
-    computerWins += 1;
-  }
-
-  prompt(`Player wins: ${playerWins}`);
-  prompt(`Computer wins: ${computerWins}`);
-
-  prompt(`Play again? (y or n)`);
-  let answer = readline.question().toLowerCase()[0];
-  if (answer !== "y") break;
 }
 
 prompt("Thanks for playing Tic Tac Toe!");

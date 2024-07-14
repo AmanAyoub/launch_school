@@ -3,6 +3,11 @@ const INITIAL_MARKER = ' ';
 const HUMAN_MARKER = 'X';
 const COMPUTER_MARKER = 'O';
 const TARGET_WINS = 5;
+const WINNING_LINES = [
+  [1, 2, 3], [4, 5, 6], [7, 8, 9], // rows
+  [1, 4, 7], [2, 5, 8], [3, 6, 9], // columns
+  [1, 5, 9], [3, 5, 7]             // diagonals
+];
 
 function prompt(message) {
   console.log(`=> ${message}`);
@@ -56,9 +61,29 @@ function playerChoosesSquare(board) {
 }
 
 function computerChoosesSquare(board) {
-  let randomIndex = Math.floor(Math.random(board) * emptySquares(board).length);
+  let square;
 
-  let square = emptySquares(board)[randomIndex];
+  for (let index = 0; index < WINNING_LINES.length; index++) {
+    let line = WINNING_LINES[index];
+    square = findAtRiskSquare(line, board, COMPUTER_MARKER)
+    if (square) break;
+  }
+
+  if (!square) {
+    for (let index = 0; index < WINNING_LINES.length; index++) {
+      let line = WINNING_LINES[index];
+      square = findAtRiskSquare(line, board, HUMAN_MARKER);
+      if (square) break;
+    }
+  }
+
+  if (!square && board['5'] === INITIAL_MARKER) {
+    square = '5';
+  } else if (!square) {
+    let randomIndex = Math.floor(Math.random(board) * emptySquares(board).length);
+    square = emptySquares(board)[randomIndex];
+  }
+  
   board[square] = COMPUTER_MARKER;
 }
 
@@ -101,6 +126,19 @@ function joinOr(squares, delimiter = ', ', word = 'or') {
 
   let string = squares.join(delimiter);
   return `${string.slice(0, string.length - 1)}${word} ${string[string.length - 1]}`;
+}
+
+function findAtRiskSquare(line, board, marker) {
+  let markersInLine = line.map(square => board[square]);
+
+  if (markersInLine.filter(val => val === marker).length === 2) {
+    let unusedSquare = line.find(square => board[square] === INITIAL_MARKER);
+    if (unusedSquare !== undefined) {
+      return unusedSquare;
+    }
+  }
+
+  return null;
 }
 
 let playerWins = 0;

@@ -171,6 +171,10 @@ while (true) {
     // Exit the loop:
     prompt(`Play again? (y or n)`);
     let answer = readline.question();
+    while (answer !== 'y' && answer !== 'Y' && answer !== 'n' && answer !== 'N') {
+      prompt("Please choose: y / n");
+      answer = readline.question();
+    }
     if (answer !== 'y') break;
   }
 }

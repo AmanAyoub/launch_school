@@ -175,4 +175,5 @@ while (true) {
   }
 }
 
+prompt("--------------");
 prompt("Thanks for playing Tic Tac Toe!");

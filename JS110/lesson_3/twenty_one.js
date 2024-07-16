@@ -6,6 +6,7 @@ const ACE_VALUE = 11;
 const FACE_VALUE = 10;
 const GOAL_SUM = 21;
 const DEALER_MIN_SUM = 17;
+const TARGET_WINS = 3;
 
 function prompt(message) {
   console.log(`=> ${message}`);
@@ -68,7 +69,6 @@ function busted(total) {
 function playerTurn(playerCards, deck) {
   while (true) {
     let playerTurn;
-    let playerTotal;
     while (true) {
       prompt("Would you like to (h)it or (s)tay?");
       playerTurn = readline.question().toLowerCase();
@@ -78,14 +78,13 @@ function playerTurn(playerCards, deck) {
 
     if (playerTurn === "h") {
       playerCards.push(deck.pop());
-      playerTotal = total(playerCards);
       console.clear();
       prompt("You chose to hit!");
       prompt(`Your cards: ${hand(playerCards)}.`);
-      prompt(`Your total: ${playerTotal}.`);
+      prompt(`Your total: ${total(playerCards)}.`);
     }
 
-    if (playerTurn === "s" || busted(playerTotal)) break;
+    if (playerTurn === "s" || busted(total(playerCards))) break;
   }
 }
 
@@ -109,13 +108,6 @@ function detectResult(dealerTotal, playerTotal) {
   } else {
     return "TIE";
   }
-}
-
-function logFinalScore(dealerCards, playerCards) {
-  console.log("==============");
-  prompt(`Dealer has ${hand(dealerCards)}, for a total of: ${total(dealerCards)}`);
-  prompt(`Player has ${hand(playerCards)}, for a total of: ${total(playerCards)}`);
-  console.log("==============");
 }
 
 function displayResults(dealerTotal, playerTotal) {
@@ -144,6 +136,7 @@ function playAgain() {
   prompt("Do you want to play again? (y or n)");
   let answer = readline.question().toLowerCase();
   while (!['y', 'yes', 'n', 'no'].includes(answer)) {
+    console.clear();
     prompt("Please choose: y/n");
     answer = readline.question();
   }
@@ -158,8 +151,19 @@ function hand(cards) {
   return cards.map(card => `${card[1]}${card[0]}`).join(", ");
 }
 
+function printScores(playerWins, dealerWins) {
+  console.log("==============");
+  prompt(`Dealer wins: ${dealerWins}`);
+  prompt(`Player wins: ${playerWins}`);
+  console.log("==============");
+}
+
 console.clear();
 prompt("Welcome to Twenty-One!");
+prompt(`Target wins: ${TARGET_WINS}`);
+
+let dealerWins = 0;
+let playerWins = 0;
 
 while (true) {
   // declare and initialize vars
@@ -173,6 +177,8 @@ while (true) {
   let playerTotal = total(playerCards);
   let dealerTotal = total(dealerCards);
 
+  printScores(playerWins, dealerWins);
+
   prompt(`Dealer has ${hand([dealerCards[0]])} and ?`);
   prompt(`You have: ${hand(playerCards)}, for a total of ${playerTotal}.`);
 
@@ -180,14 +186,13 @@ while (true) {
   playerTurn(playerCards, deck);
   playerTotal = total(playerCards);
 
-  if (busted(playerTotal)) {
-    displayResults(dealerTotal, playerTotal);
-    if (playAgain()) {
-      console.clear();
-      continue;
-    } else {
-      break;
-    }
+  if (busted(playerTotal) &&
+  playerWins >= TARGET_WINS &&
+  dealerWins >= TARGET_WINS) {
+    dealerWins += 1;
+    console.clear();
+
+    continue;
   } else {
     console.clear();
     prompt(`You stayed at ${playerTotal}`);
@@ -198,24 +203,29 @@ while (true) {
   dealerTurn(dealerCards, deck);
   dealerTotal = total(dealerCards);
 
-  if (busted(dealerTotal)) {
-    prompt(`Dealer total: ${dealerTotal}.`);
-    displayResults(dealerTotal, playerTotal);
-    if (playAgain()) {
-      console.clear();
-      continue;
-    } else {
-      break;
-    }
+  if (busted(dealerTotal) &&
+  playerWins >= TARGET_WINS &&
+  dealerWins >= TARGET_WINS) {
+    playerWins += 1;
+    console.clear();
+    continue;
   } else {
     prompt(`Dealer stays at ${dealerTotal}.`);
   }
 
-  // both player and dealer stays - compare cards!
-  logFinalScore(dealerCards, playerCards);
-  displayResults(dealerTotal, playerTotal);
+  // find out the winner:
+  let winner = detectResult(dealerTotal, playerTotal);
+  if (["DEALER_BUSTED", "PLAYER"].includes(winner)) playerWins += 1;
+  if (["PLAYER_BUSTED", "DEALER"].includes(winner)) dealerWins += 1;
 
-  if (!playAgain()) break;
+  printScores(playerWins, dealerWins);
+
+  if (playerWins === TARGET_WINS || dealerWins === TARGET_WINS) {
+    displayResults(dealerTotal, playerTotal);
+    playerWins = 0;
+    dealerWins = 0;
+    if (!playAgain()) break;
+  }
 
   console.clear();
 }

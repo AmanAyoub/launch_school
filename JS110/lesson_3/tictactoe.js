@@ -16,6 +16,7 @@ function prompt(message) {
 function displayBoard(board) {
   console.clear();
 
+  prompt("Target wins: 5");
   prompt(`Computer wins: ${computerWins}`);
   prompt(`Player wins: ${playerWins}`);
 
@@ -54,6 +55,7 @@ function playerChoosesSquare(board) {
     square = readline.question().trim();
 
     if (emptySquares(board).includes(square)) break;
+    console.clear();
     prompt("Sorry, that's not a valid choice.");
   }
 
@@ -65,7 +67,7 @@ function computerChoosesSquare(board) {
 
   for (let index = 0; index < WINNING_LINES.length; index++) {
     let line = WINNING_LINES[index];
-    square = findAtRiskSquare(line, board, COMPUTER_MARKER)
+    square = findAtRiskSquare(line, board, COMPUTER_MARKER);
     if (square) break;
   }
 
@@ -83,7 +85,7 @@ function computerChoosesSquare(board) {
     let randomIndex = Math.floor(Math.random(board) * emptySquares(board).length);
     square = emptySquares(board)[randomIndex];
   }
-  
+
   board[square] = COMPUTER_MARKER;
 }
 
@@ -96,14 +98,8 @@ function someoneWon(board) {
 }
 
 function detectWinner(board) {
-  let winningLines = [
-    [1, 2, 3], [4, 5, 6], [7, 8, 9], // rows
-    [1, 4, 7], [2, 5, 8], [3, 6, 9], // columns
-    [1, 5, 9], [3, 5, 7]             // diagonals
-  ];
-
-  for (let line = 0; line < winningLines.length; line++) {
-    let [sq1, sq2, sq3] = winningLines[line];
+  for (let line = 0; line < WINNING_LINES.length; line++) {
+    let [sq1, sq2, sq3] = WINNING_LINES[line];
 
     if (board[sq1] === HUMAN_MARKER &&
       board[sq2] === HUMAN_MARKER &&
@@ -170,12 +166,12 @@ while (true) {
 
     // Exit the loop:
     prompt(`Play again? (y or n)`);
-    let answer = readline.question();
-    while (answer !== 'y' && answer !== 'Y' && answer !== 'n' && answer !== 'N') {
+    let answer = readline.question().toLowerCase();
+    while (!['n', 'y', 'yes', 'no'].includes(answer)) {
       prompt("Please choose: y / n");
-      answer = readline.question();
+      answer = readline.question().toLowerCase();
     }
-    if (answer !== 'y') break;
+    if (['n', 'no'].includes(answer)) break;
   }
 }
 

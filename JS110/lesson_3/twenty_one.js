@@ -73,6 +73,7 @@ function playerTurn(playerCards, deck) {
       prompt("Would you like to (h)it or (s)tay?");
       playerTurn = readline.question().toLowerCase();
       if (["h", "s"].includes(playerTurn)) break;
+      console.clear();
       prompt("Sorry, must enter 'h' or 's'.");
     }
 
@@ -177,7 +178,7 @@ while (true) {
   let playerTotal = total(playerCards);
   let dealerTotal = total(dealerCards);
 
-  printScores(playerWins, dealerWins);
+  // printScores(playerWins, dealerWins);
 
   prompt(`Dealer has ${hand([dealerCards[0]])} and ?`);
   prompt(`You have: ${hand(playerCards)}, for a total of ${playerTotal}.`);
@@ -226,9 +227,9 @@ while (true) {
     dealerWins = 0;
     if (!playAgain()) break;
   }
-
-  console.clear();
 }
 
 console.log("-------------");
-console.log("We hope to see you again soon!");
+setTimeout(() => {
+  console.log("We hope to see you again soon!");
+}, 2000);

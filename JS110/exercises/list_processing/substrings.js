@@ -46,7 +46,7 @@ function leadingSubstrings2(string) {
 
   return substrings;
 }
-
+ 
 console.log(leadingSubstrings2('abc'));      // ["a", "ab", "abc"]
 console.log(leadingSubstrings('a'));        // ["a"]
 console.log(leadingSubstrings2('xyzzy'));    // ["x", "xy", "xyz", "xyzz", "xyzzy"]

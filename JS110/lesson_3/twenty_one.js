@@ -1,6 +1,11 @@
 const readline = require("readline-sync");
+// Code points for spades, hearts, clubs, and diamonds  
+const spade = '\u2660';  
+const heart = '\u2665';  
+const club = '\u2663';  
+const diamond = '\u2666'; 
 
-const SUITS = ["H", "D", "S", "C"];
+const SUITS = [heart, diamond, spade, club];
 const VALUES = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"];
 const ACE_VALUE = 11;
 const FACE_VALUE = 10;
@@ -26,7 +31,7 @@ function initalizeDeck() {
   let deck = [];
 
   for (let suitIndex = 0; suitIndex < SUITS.length; suitIndex++) {
-    let suit = SUITS[suitIndex];
+    let suit = ' ' + SUITS[suitIndex];
 
     for (let valueIndex = 0; valueIndex < VALUES.length; valueIndex++) {
       let value = VALUES[valueIndex];

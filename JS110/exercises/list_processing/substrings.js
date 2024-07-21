@@ -31,15 +31,14 @@ A
   - Return `substrings`
 */
 
-function leadingSubstrings(string) {
-  let substrings = [];
-  for (let index = 1; index <= string.length; index++) {
-    substrings.push(string.slice(0, index));
-  }
+// Further exploration:
+function leadingSubstrings2(string) {
+  let characters = string.split('')
+  let substrings = characters.map((char, index) => characters.slice(0, index + 1).join(''));
 
   return substrings;
 }
 
-console.log(leadingSubstrings('abc'));      // ["a", "ab", "abc"]
+console.log(leadingSubstrings2('abc'));      // ["a", "ab", "abc"]
 console.log(leadingSubstrings('a'));        // ["a"]
 console.log(leadingSubstrings('xyzzy'));    // ["x", "xy", "xyz", "xyzz", "xyzzy"]

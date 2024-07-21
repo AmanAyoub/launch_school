@@ -22,13 +22,13 @@ A
    - Repeat for each element
 
  Detailed:
-  - Create an empty array `products` to store each pair's product
+  - Create an empty array `products` to store each pair product
   - Iterate through the first array
    - Iterate through the second array
     - Multiply the current element of first array with each number inside the second array
-     - Add the product to `products`
-   - End of the loop
-  - End of the loop
+     - Append each product to `products`
+   - End the loop
+  - End the loop
 
  - Sort the `products`
  - Return `products`
@@ -39,8 +39,8 @@ A
 function multiplyAllPairs(arr1, arr2) {
   let products = [];
 
-  arr1.forEach((int, index) => {
-    arr2.forEach((int2, index2) => {
+  arr1.forEach((int) => {
+    arr2.forEach((int2) => {
       products.push(int * int2);
     });
   });
@@ -48,7 +48,6 @@ function multiplyAllPairs(arr1, arr2) {
   products.sort((a, b) => a - b);
   return products;
 }
-
 
 
 console.log(multiplyAllPairs([2, 4], [4, 3, 1, 2]));    // [2, 4, 4, 6, 8, 8, 12, 16]

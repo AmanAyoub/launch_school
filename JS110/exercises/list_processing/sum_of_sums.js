@@ -1,5 +1,6 @@
 /*
- Write a function that takes an array of numbers and returns the sum of the sums of each leading subsequence in that array. Examine the examples to see what we mean. You may assume that the array always contains at least one number.
+ Write a function that takes an array of numbers and returns the sum of the sums of each leading subsequence in that array.
+ Examine the examples to see what we mean. You may assume that the array always contains at least one number.
 
 P:
 In: an array of numbers

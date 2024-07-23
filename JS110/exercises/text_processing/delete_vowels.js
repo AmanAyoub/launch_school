@@ -13,6 +13,13 @@ function removeVowels(strings) {
   return vowelsRemoved;
 }
 
-console.log(removeVowels(['abcdefghijklmnopqrstuvwxyz']));         // ["bcdfghjklmnpqrstvwxyz"]
+
+// Solution 2:
+function removeVowels2(strings) {
+  let vowelsRemoved = strings.map(str => str.replace(/[aioue]/gi, ""));
+  return vowelsRemoved;
+}
+
+console.log(removeVowels2(['abcdefghijklmnopqrstuvwxyz']));         // ["bcdfghjklmnpqrstvwxyz"]
 console.log(removeVowels(['green', 'YELLOW', 'black', 'white']));  // ["grn", "YLLW", "blck", "wht"]
 console.log(removeVowels(['ABC', 'AEIOU', 'XYZ']));                // ["BC", "", "XYZ"]

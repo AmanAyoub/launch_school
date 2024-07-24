@@ -1,52 +1,67 @@
 /*
-Write a function that takes a string and returns an object containing three
-properties: one representing the number of characters in the string that are lowercase letters,
-one representing the number of characters that are uppercase letters,
-and one representing the number of characters that are neither.
+Write a function that takes a string and returns an object containing three properties: one representing the number of characters in the string that are lowercase letters, one representing the number of characters that are uppercase letters, and one representing the number of characters that are neither.
 
 P:
- In: String
- Out: an object
- Rules:
-  - Returned object should be of three properties
-   - lowercase, uppercase, and neither
-  - lowercase should contain the number of lowercase letters
-  - uppercase should contain the number of uppercase letters
-  - neither should contain the number of letters that are neither lowercase or uppercase (meaning that special characters)
-  - given string length doesn't matter
-  - digits should also be counted as neither
+In: a string
+Out: an object
+Rules:
+ - the string: 
+   - can contain alphabetic characters, numbers, and / or any other characters;
+   - can be of any length;
 
-"Aman Ayoub" ==> lowercase: 7, uppercase: 2, neither: 1
-
-D:
- - Object: to store the frequency of lowercase, uppercase and neither letters
+ - the object contains three properties:
+   i. number of lowercase letters
+   ii. number of uppercase letters
+   iii. number of all other characters including empty spaces
+ 
+ - if the string is empty, return the object properties with value `0` 
 
 A:
- - 1. Create an object `frequency` containing three key-value pairs, lowercase: 0, uppercase: 0, and neither: 0
- - 2. Increment the `neither` key associated value in the `frequency` object by the length of special characters in the given string
- - 3. Create a variable `nonAlpha` assign it to non-alphabet characters from the given string
- - 4. Increment the `neither` key associated value by the length of `nonAlpha`
- - 5. Iterate through the alphabet characters in the given string
-  - If the current character is in lowercase
-   - Increment the `lowercase` key associated value by 1 inside the `frequency` object
-  - If the current character is in uppercase
-   - Increment the `uppercase` key associated value by inside the `frequency` object
+High-level:
+ - Iterate through the string, count how many letters, numbers, and other characters are present, return the numbers as object properties.
 
- - 6. Return `frequency`
+Given a string, declare a function `letterCaseCount`. 
+  -Inside the function: 
+    - declare the following four variables:
+      - `caseCount` initialized to an object with three keys with their respective values as follows:
+           lowercase: 0, 
+           uppercase: 0, 
+           neither: 0;
+  - Loop through the string:
+    - if the current character is in lower case, increase `lowercase` value by 1; otherwise:
+      -  if the current character is in upper case, increase `uppercase` value by 1; otherwise:
+        - if the current character is a non-alphabetic character, increase `neither` value by 1.
+  - End the Loop
+  - Return `caseCount`
 */
 
 function letterCaseCount(string) {
-  let frequency = { lowercase: 0, uppercase: 0, neither: 0 };
-  let nonAlpha = string.split('').filter(char => {
-    if (char.match(/[1234567890]/g)) return true;
-    if (char.match(/\W+/g)); return true;
-    return false;
-  }).join('');
-  
-  console.log(nonAlpha);
+  let caseCount = { lowercase: 0, uppercase: 0, neither: 0 };
+
+  for (let char of string) {
+    if (char >= "a" && char <= "z") {
+      caseCount.lowercase += 1;
+    } else if (char >= "A" && char <= "Z") {
+      caseCount.uppercase += 1;
+    } else {
+      caseCount.neither += 1;
+    }
+  }
+
+  return caseCount;
+}
+
+// Solution 2:
+function letterCaseCount(string) {
+  let caseCount = { lowercase: 0, uppercase: 0, neither: 0 };
+
+  caseCount.lowercase = string.match(/[a-z]/g).length; 
+  caseCount.uppercase = string.match(/[A-Z]/g).length; 
+  caseCount.neither = string.match(/[^A-Za-z]/g).length; 
+
+  return caseCount;
 }
 
 letterCaseCount('abCdef 123');  // { lowercase: 5, uppercase: 1, neither: 4 }
-letterCaseCount('AbCd +Ef');    // { lowercase: 3, uppercase: 3, neither: 2 }
-letterCaseCount('123');         // { lowercase: 0, uppercase: 0, neither: 3 }
-letterCaseCount('');            // { lowercase: 0, uppercase: 0, neither: 0 }
+// letterCaseCount('AbCd +Ef');    // { lowercase: 3, uppercase: 3, neither: 2 }
+// letterCaseCount('123');         // { lowercase: 0, uppercase: 0, neither: 3 }

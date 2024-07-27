@@ -2,20 +2,19 @@
 Given a list of integers and a single sum value, return the first two values
 in order of appearance that add up to form the sum.
 
-If there are two or more pairs with the required sum, the pair whose second element has the smallest index is the solution.
+If there are two or more pairs with the required sum,
+the pair whose second element has the smallest index is the solution.
 
 Example:
 
 console.log(sumPairs([4, 3, 2, 3, 4],         6));
-                   ^-----^         4 + 2 = 6, indices: 0, 2
-                      ^-----^      3 + 3 = 6, indices: 1, 3
-                         ^-----^   2 + 4 = 6, indices: 2, 4
+                      ^-----^         4 + 2 = 6, indices: 0, 2
+                         ^-----^      3 + 3 = 6, indices: 1, 3
+                            ^-----^   2 + 4 = 6, indices: 2, 4
 == [4, 2]
 
 Negative numbers and duplicate numbers can and will appear.
 */
-
-
 
 
 // Test cases

@@ -16,7 +16,7 @@ function triangle(num1, num2, num3) {
   if (total !== 180 || num1 === 0 || num2 === 0 || num3 === 0) return "invalid";
   if (num1 === 90 || num2 === 90 || num3 === 90) return "right";
   if (num1 < 90 && num2 < 90 && num3 < 90) return "acute";
-  if (num1 > 90 || num2 > 90 || num3 > 90) return "obtuse";
+  return "obtuse";
 }
 
 p = console.log

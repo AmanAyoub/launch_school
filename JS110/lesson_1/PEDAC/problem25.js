@@ -28,17 +28,22 @@ A:
 3. Otherwise, return -1
 */
 
-function nextBiggerNum(number) {
-  let digits = String(number).split('');
-  for (let idx = digits.length - 1; idx > -1; idx--) {
-    for (let idx2 = digits.length - 2; idx2 > -1; idx2--) {
-      let num1 = digits[idx];
-      let num2 = digits[idx2];
-      digits[idx2] = num1;
-      digits[idx] = num2;
+function toArray(number) {
+  return String(number).split('');
+}
 
-      if (Number(digits.join('')) > number) return Number(digits.join(''));
-    }
+function compareDigits(number1, number2) {
+  if (JSON.stringify(toArray(number1).sort()) ===
+      JSON.stringify(toArray(number2).sort())) return true;
+  return false;
+}
+
+function nextBiggerNum(number) {
+  let numberLength = toArray(number).length;
+  let num2 = number;
+  while (numberLength === toArray(num2).length) {
+    num2 += 1;
+    if (compareDigits(num2, number)) return num2;
   }
 
   return -1;
@@ -46,7 +51,7 @@ function nextBiggerNum(number) {
 
 let p = console.log;
 
-p(nextBiggerNum(9) === -1);
+p(nextBiggerNum(1432))// === 2134);
 p(nextBiggerNum(12) === 21);
 p(nextBiggerNum(513) === 531);
 p(nextBiggerNum(2017)=== 2071);

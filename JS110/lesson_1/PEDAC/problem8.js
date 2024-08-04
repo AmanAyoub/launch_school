@@ -67,7 +67,7 @@ function differenceOfTwo(array) {
   array.sort((a, b => a - b));
 
   for (let index = 0; index < array.length; index++) {
-      let currentInterger = array[index];
+      let currentInteger = array[index];
 
       if (array.includes(currentInteger + 2)) {
           let pair = [currentInteger, currentInteger + 2];

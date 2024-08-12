@@ -1,49 +1,51 @@
-// Implement a function, capitalize, that capitalizes all words in a sentences.
-// However, only capitalize if the word is followed by a word starting with a vowel. -- Aman
 /*
-P
- IN: A string that contains sentence
- OUT: A string calitalized words followed by words starting with a vowel
+Implement a function, capitalize, that capitalizes all words in a sentences.
+However, only capitalize if the word is followed by a word starting with a vowel. -- Aman
 
-D
- String: to save the capitalized sentence
- Array: to find words followed by words starting with a vowel
+In: string
+Out: string
+Rules:
+ - Capitalize words that followed by words starting with a vowel
 
-A
-Given a string, write a function `capitalize`
- - Declare a variable `capitalizedWords`, initialize it to an empty string
- - Declare a variable `words`, initialize it to the given string splitted as array elements
+Array: to store the words
 
- - Iterate through `words` find each word that is followed by word starting with a vowel
-  - Declare a variable `nextWord`, initilaize it to the next element in the iteration
-  - Declare a variable `currentWord`, initialize it to the current element in the iteration
-  - Check whether `nextWord` starts with a vowel
-   - if true:
-    - concatenate the `currentWord` capitalized to the `capitalizedWords`
-   - if false:
-    - move to the next word
-  - End of the loop
+A:
+ - Get the words of input string
+ - Iterate through words
+  - If the current word is followed by a word starting with vowel
+  - Capitalize the current word
 
- - Repeat step #3 for each element in the `words`
- - Return `capitalizedWords`
+1. Get the words from the input string
+2. Iterate through words
+ - If the next word is starting with a vowel
+  - Capitalize the current word
+3. Convert the words array/list to a string
+4. Return the string
+
+
+capitalize(string) function
+-----------------
+1. Get the input string first char
+2. Change the char to uppercase
+3. Join the char with the rest of chars
+4. Return the joined string
 */
 
 function capitalize(string) {
-  let capitalizedWords = "";
   let words = string.split(" ");
-
-  for (let index = 0; index < words.length; index++) {
-    let currentWord = words[index];
-    let nextWord = words[index + 1];
-
-    if (nextWord && "aeiou".includes(nextWord[0])) {
-      capitalizedWords += currentWord[0].toUpperCase() + currentWord.slice(1) + " ";
-    } else {
-      capitalizedWords += currentWord + " ";
+  for (let idx = 0; idx < words.length - 1; idx++) {
+    let nextWord = words[idx + 1];
+    if ("aeiou".includes(nextWord[0])) {
+      words[idx] = capitalizeWord(words[idx]);
     }
   }
 
-  return capitalizedWords;
+  return words.join(' ');
+}
+
+
+function capitalizeWord(string) {
+  return string[0].toUpperCase() + string.slice(1);
 }
 
 

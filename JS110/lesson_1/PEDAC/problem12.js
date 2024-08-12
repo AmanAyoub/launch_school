@@ -1,67 +1,51 @@
 /*
-Create a function that takes a string argument and returns a copy of the string with every second character in every third word converted to uppercase. Other characters should remain the same.
+Create a function that takes a string argument and returns a copy of the string with
+every second character in every third word converted to uppercase.
+Other characters should remain the same.
 
-P:
-In: a string
-Out: string (not the same string)
+IN: string
+Out: string
 Rules:
- - Convert every other letters of third word's to uppercase
-  - Other characters should remain as it is
- - If the third word is a signle letter, it should remain as it is
- - If input string contain uppercase characters, it should remain the same
+ - Convert every third word second char to uppercase
 
-"The sun is no shinning today!" ==> "The sun iS not shinning tOdAy!"
-
-D:
- - Array: to store every word of the input string
+Array: to store the words from input string
 
 A:
-High level:
- - Split the input string into an array/list of words, iterate through it
-  - If iteration number is a multiplier of 3
-   - Conver every other letter of the current word
+ - Get the words of input string
+ - Iterate through words
+ - Convert each third word's second char to uppercase
 
-Detailed:
- 1. Create an array `words` containing the words of the input string
- 2. Iterate through `words` to transform the array
-  - If the iteration number is a multiplier of 3
-   - Change every other letter of the word to uppercase
-  - Otherwise, move to the next word
- 3. Convert the `words` array/list to a string
- 4. Return the string
+1. Get the words from input string
+2. Iterate through words
+ - If the current iteration number is a multiple of three
+  - Convert the current word second char to uppercase
+3. Convert the words to a string
+4. Return the string
 
-
-secondLettersToUpper function
---------------------
- 1. Create a variable `result` assing it to an empty string
- 2. Iterate through given string
-  - If the current character index is odd
-   - Add the current character to `result` in uppercase form
-  - Otherwise, add the current character to `result` as it is
- 3. Return `result`
+secondToUpper(string) function
+----------------------
+1. If the input string is a single char, return it as it iS
+2. Change the second char of input string to upper case
+3. Return the string
 */
-
-function secondLettersToUpper(string) {
-  let result = "";
-  for (let idx = 0; idx < string.length; idx++) {
-    if (idx % 2 === 1) {
-      result += string[idx].toUpperCase();
-    } else {
-      result += string[idx];
-    }
-  }
-
-  return result;
-}
 
 function toWeirdCase(string) {
   let words = string.split(' ');
   words = words.map((word, idx) => {
-    if ((idx + 1) % 3 === 0) return secondLettersToUpper(word);
+    if ((idx + 1) % 3 === 0) return secondToUpper(word);
     return word;
   });
 
   return words.join(' ');
+}
+
+function secondToUpper(string) {
+  if (string.length === 1) return string;
+  let chars = string.split('');
+  chars.forEach((char, idx) => {
+    if (idx % 2 === 1) chars[idx] = char.toUpperCase();
+  })
+  return chars.join('');
 }
 
 

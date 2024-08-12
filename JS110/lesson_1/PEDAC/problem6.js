@@ -15,73 +15,50 @@ Adding these together produces 142.
 
 Consider your entire array. What is the sum of all of the numeric values?
 
-P
-EXPLICIT:
- - Find numeric values by combining the first digit and the last digit
- - Return value should be the sum of all strings numeric values
+In: array
+Out: number
+Rules:
+ - Combine the first and last digits from the string
+ - Find the sum of all numeric values
 
-IMPLICIT:
- - Give strings will contain 1 or more numeric values
- - If the given string contains 1 digit, double it
- - Given array can be of any length
+Array: to store the numeric values
 
-D:
-IN: an array of strings that might contains numeric values
-OUT: a number representing the sum of all numbers in the given array of strings
+A:
+1. Get the numeric values from the input array
+2. Create a variable sum assign it to 0
+3. Iterate through numeric values
+ - Join the first and last digits of the current number
+  - Add the two-digit number to sum
+4. Return sum
 
-Intermediate:
- - array: to store all the numeric values in the given strings
 
-A
-Given a set of strings, write a function `sumStringValues`
- - Declare a variable `numbers`, initialize it to an empty array
-
- - Iterate through the given array, find each numeric value in the given array
-  - Declare a variable `currentStr`, initialize it to the current element in the iteration
-  - Declare a variable `currentNumbers`, initialize it to an empty array
-
-  - Iterate through `currentStr`
-   - Declare a variable `currentChar`, initialize it to the current character in the iteration
-
-   - Check whether `currentChar` is a number
-    - if true:
-     - append it to the array `currentNumbers`
-    - if false:
-     - move to the next character
-  - append `currentNumbers` to the array `numbers`
- - Repeat step #2 for each element in the given array
-
- - Declare `sum`, initialize it 0;
- - Iterate through `numbers`
-  - declare `twoDigitNumber`, initialize it to first and last element in the sub-array
-  - add `twoDigitNumber` to `sum`
- 
- - Return `sum`
+numericValues(array) function
+-----------------------
+1. Create an empty array numbers
+2. Iterate through input strings
+ - Extract the digits from the current string
+  - Append the digits to numbers
+3. Return the numbers array/list
 */
 
 function sumStringValues(strings) {
-  let numbers = [];
-
-  strings.forEach(currentStr => {
-    let currentNumbers = [];
-    for (let index = 0; index < currentStr.length; index++) {
-      let currentChar = currentStr[index];
-
-      if (!isNaN(Number(currentChar))) {
-        currentNumbers.push(currentChar);
-      }
-    }
-
-    numbers.push(currentNumbers);
-    });
-  
+  let numbers = numericValues(strings);
   let sum = 0;
-  numbers.forEach(subArr => {
-    let twoDigitNumber = subArr[0] + subArr[subArr.length - 1];
-    sum += Number(twoDigitNumber);
-  });
+  for (let num of numbers) {
+    sum += Number(num[0] + num[num.length - 1]);
+  }
 
   return sum;
 }
+
+function numericValues(strings) {
+  let numbers = [];
+  for (let str of strings) {
+    numbers.push(str.match(/[0-9]/g).join(''));
+  }
+
+  return numbers;
+}
+
 
 console.log(sumStringValues(['1abc2', 'pqr3stu8vwx', 'a1b2c3d4e5f', 'treb7uchet'])); // 142

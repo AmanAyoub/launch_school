@@ -1,4 +1,11 @@
 let readline = require("readline-sync");
+const WINNING_COMBOS = {
+  rock:     ['scissors', 'lizard'],
+  paper:    ['rock',     'spock'],
+  scissors: ['paper',    'lizard'],
+  lizard:   ['paper',    'spock'],
+  spock:    ['rock',     'scissors'],
+};
 
 function createPlayer() {
   return {
@@ -13,10 +20,13 @@ function createHuman() {
     choose() {
       let choice;
       while (true) {
-        console.log("Please choose rock, paper, scissors, lizard, or spock");
-        choice = readline.question();
-        if (["rock", "paper", "scissors", "lizard", "spock"].includes(choice)) break;
+        console.log("Please choose rock(r), paper(p), scissors(s), lizard(l), or spock(sp)");
+        choice = readline.question().toLowerCase();
+        if (["rock", "paper", "scissors", "lizard", "spock", "l", "s", "p", "r", "sp"].includes(choice)) break;
+        console.clear();
+        console.log("--------------------------------");
         console.log("Sorry, invalid choice.");
+        console.log("Please choose rock(r), paper(p), scissors(s), lizard(l), or spock(sp)");
       }
       this.move = choice;
     }
@@ -52,35 +62,22 @@ const RPSGame = {
     console.log("Thanks for playing Rock, Paper, Scissors. Goodbye!");
   },
 
+
   detectWinner() {
-    console.log(`You chose: ${this.human.move}`);
-    console.log(`Computer chose: ${this.computer.move}`);
-    if ((this.human.move === 'rock' && this.computer.move === 'scissors') ||
-    (this.human.move === 'paper' && this.computer.move === 'rock') ||
-    (this.human.move === 'scissors' && this.computer.move === 'paper') ||
-    (this.human.move === 'lizard' && this.computer.move === 'spock') ||
-    (this.human.move === 'spock' && this.computer.move === 'scissors')) {
-      return 'human';
-    } else if ((this.human.move === 'scissors' && this.computer.move === 'rock') ||
-    (this.human.move === 'rock' && this.computer.move === 'paper') ||
-    (this.human.move === 'paper' && this.computer.move === 'scissors') ||
-    (this.human.move === 'spock' && this.computer.move === 'lizard') ||
-    (this.human.move === 'scissors' && this.computer.move === 'spock')) {
-      return 'computer';
-    } else {
-      return "tie";
-    }
+    if (this.human.move === this.computer.move) return "tie";
+    if (WINNING_COMBOS[this.human.move].includes(this.computer.move)) return "human";
+    return "computer";
   },
 
   playAgain() {
     console.log("Would you like to play again? (y/n)");
     let answer = readline.question().toLowerCase();
-    while (!["y", "yes", "yeah", "no", "n"].includes(answer)) {
+    while (!["y", "yes", "yeah", "no", "n", "nope", "yup"].includes(answer)) {
       console.log("Please choose: (y/n)");
       answer = readline.question().toLowerCase();
       console.clear();
     }
-    if (["y", "yes", "yeah"].includes(answer)) return true;
+    if (["y", "yes", "yeah", "yup"].includes(answer)) return true;
     return false;
   },
   displayScore() {
@@ -90,9 +87,16 @@ const RPSGame = {
   },
   updateScore() {
     if (this.detectWinner() === 'human') {
+      console.log(`${this.human.move.toUpperCase()} BEATS ${this.computer.move.toUpperCase()}`);
+      console.log();
       this.human.score += 1;
     } else if (this.detectWinner() === 'computer') {
+      console.log(`${this.computer.move.toUpperCase()} BEATS ${this.human.move.toUpperCase()}`);
+      console.log();
       this.computer.score += 1;
+    } else {
+      console.log("TIE!");
+      console.log();
     }
   },
   displayWinner() {
@@ -102,20 +106,63 @@ const RPSGame = {
       console.log('Computer wins!');
     }
   },
+  shortHand() {
+    switch (this.human.move) {
+      case "r":
+        this.human.move = "rock";
+        break;
+      case "p":
+        this.human.move = "paper";
+        break;
+      case "s":
+        this.human.move = "scissors"
+        break;
+      case "l":
+        this.human.move = "lizard";
+        break;
+      case "sp":
+        this.human.move = "spock";
+        break;
+      default:
+        return this.human.move;
+    }
+    return this.human.move;
+  },
+
+  displayMoves() {
+    this.human.move = this.shortHand();
+    console.clear();
+    // console.log("--------------------------------");
+    console.log(`You chose: ${this.human.move}`);
+    console.log(`Computer chose: ${this.computer.move}`);
+  },
+  nextRound() {
+    console.log("Press enter to start the next round...");
+    console.log("--------------------------------");
+    readline.question();
+    console.clear();
+  },
+  resetGame() {
+    console.clear();
+    this.human.score = 0;
+    this.computer.score = 0;
+  },
 
   play() {
     this.displayWelcomeMessage();
     while (true) {
-      while (this.human.score < this.targetPoints && this.computer.score < this.targetPoints) {
+      while (this.human.score < this.targetPoints &&
+        this.computer.score < this.targetPoints) {
         this.displayScore();
         this.human.choose();
         this.computer.choose();
+        this.displayMoves();
         this.updateScore();
-        // Add a timeout here
-        console.clear();
+        this.nextRound();
       }
       this.displayWinner();
       if (!this.playAgain()) break;
+      this.resetGame()
     }
     this.displayGoodbyeMessage();
   },

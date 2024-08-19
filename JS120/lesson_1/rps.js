@@ -64,9 +64,13 @@ const RPSGame = {
 
 
   detectWinner() {
-    if (this.human.move === this.computer.move) return "tie";
-    if (WINNING_COMBOS[this.human.move].includes(this.computer.move)) return "human";
-    return "computer";
+    if (this.human.move === this.computer.move) {
+      return "tie";
+    } else if (WINNING_COMBOS[this.human.move].includes(this.computer.move)) {
+      return "human";
+    } else {
+      return "computer";
+    }
   },
 
   playAgain() {

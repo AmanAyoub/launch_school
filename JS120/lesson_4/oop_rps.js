@@ -1,8 +1,3 @@
-// Write a constructor function for each factory function.
-// Move the initialization code from the factory function into the constructor.
-// Move all the other methods from the factory function into the constructor's prototype.
-// Replace the factory function invocations with constructor calls.
-
 let readline = require('readline-sync');
 
 

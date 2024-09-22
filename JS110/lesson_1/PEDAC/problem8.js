@@ -67,13 +67,16 @@ function differenceOfTwo(array) {
   array.sort((a, b => a - b));
 
   for (let index = 0; index < array.length; index++) {
-      let currentInteger = array[index];
-
-      if (array.includes(currentInteger + 2)) {
-          let pair = [currentInteger, currentInteger + 2];
-          pairs.push(pair);
-      }
+    let currentInteger = array[index];
+    if (array.includes(currentInteger + 2)) {
+      let pair = [currentInteger, currentInteger + 2];
+      pairs.push(pair);
+    }
   }
 
   return pairs;
 }
+
+console.log(differenceOfTwo([5, 2, 7, 9, 10, 3, 11])); // [[3, 5], [5, 7], [9, 11]]
+console.log(differenceOfTwo([21, 5, 13, 19, 23, 15])); // [[13, 15], [19, 21], [21, 23]]
+console.log(differenceOfTwo([5, 2, 6, 12])); // []

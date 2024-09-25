@@ -107,7 +107,6 @@ function TTTGame() {
   this.computer = new Computer();
 }
 
-
 TTTGame.POSSIBLE_WINNING_ROWS = [
   [ "1", "2", "3" ],
   [ "4", "5", "6" ],
@@ -203,7 +202,6 @@ TTTGame.prototype = {
 };
 
 TTTGame.prototype.constructor = TTTGame;
-
 
 let game = new TTTGame();
 game.play();

@@ -95,4 +95,49 @@ class TodoList {
     let list = this.todos.map(todo => todo.toString()).join("\n");
     return `${title} ${list}`;
   }
+
+  forEach(callback) {
+    this.todos.forEach(callback);
+  }
+
+  filter(callback) {
+    let filteredTodos = new TodoList(this.title);
+    this.forEach((todo, index) => {
+      if (callback(todo, index)) {
+        filteredTodos.add(todo);
+      }
+    });
+    return filteredTodos;
+  }
+
+  findByTitle(title) {
+    return this.filter(todo => todo.getTitle() === title).first();
+  }
+
+  allDone() {
+    return this.filter(todo => todo.isDone());
+  }
+
+  allNotDone() {
+    return this.filter(todo => !(todo.isDone()));
+  }
+
+  markDone(title) {
+    let todo = this.findByTitle(title);
+    if (todo !== undefined) {
+      todo.markDone();
+    }
+  }
+
+  markAllDone() {
+    this.forEach(todo => todo.markDone());
+  }
+
+  markAllUndone() {
+    this.forEach(todo => todo.markUndone());
+  }
+
+  toArray() {
+    return this.todos.slice();
+  }
 }

@@ -1,4 +1,8 @@
-/* Implement the function/method, minimum shorten. The function shortens a sentence such that it will fit within the character limit set. It shortens by removing vowels in the sequence of a, e, i, o, and u. Start removing from the end of the sentence. If it can not be shortened to fit within character limit, return an empty string. Spaces don’t count for the limit.
+/* Implement the function/method, minimum shorten.
+The function shortens a sentence such that it will fit within the character limit set.
+It shortens by removing vowels in the sequence of a, e, i, o, and u.
+Start removing from the end of the sentence.
+If it can not be shortened to fit within character limit, return an empty string. Spaces don’t count for the limit.
 
 In: string, number
 Out: string

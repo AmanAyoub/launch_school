@@ -15,9 +15,9 @@ A:
 1. Create an empty array leaders
 2. Iterate through input array
  - Get the right side numbers of the current number
- - If all of the right side elements are less than the current number
-  - Store the the current number as a leader
-3. Return leader
+ - If the right side elements are less than the current number
+   - Append the current number to leaders
+3. Return leaders
 */
 
 function getLeaders(numbers) {

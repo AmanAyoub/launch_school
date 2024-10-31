@@ -11,9 +11,7 @@ Array: to store the words
 
 A:
  - Get the words of input string
- - Iterate through words
-  - If the current word is followed by a word starting with vowel
-  - Capitalize the current word
+ - Capitalize each word that is followed by a word starting with a vowel
 
 1. Get the words from the input string
 2. Iterate through words

@@ -7,7 +7,7 @@ A Leader is an element that is greater than all of the elements on its right sid
 In: array
 Out: array (not the same array)
 Rules:
- - Leaders are elements who are greater than its right side elements 
+ - Leaders are elements that are greater than its right side elements 
  - If input array is empty, return an empty array
 
 

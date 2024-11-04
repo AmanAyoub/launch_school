@@ -113,4 +113,30 @@ describe('TodoList', () => {
   test("filter returns a new array", () => {
     expect((list.filter(() => true)).toArray()).toEqual([todo1, todo2, todo3]);
   });
+
+  test("finding by title", () => {
+    expect(list.findByTitle("Clean room")).toEqual(todo2);
+  });
+
+  test("get all done todos", () => {
+    list.markDoneAt(0);
+    list.markDoneAt(1);
+    expect(list.allDone().toArray()).toEqual([todo1, todo2])
+  });
+
+  test("get all undone todos", () => {
+    list.markDoneAt(0);
+    list.markDoneAt(1);
+    expect(list.allNotDone().toArray()).toEqual([todo3]);
+  });
+
+  test("mark todo as done by title", () => {
+    list.markDone("Clean room");
+    expect(todo2.isDone()).toBe(true);
+  });
+
+  test("mark all undone", () => {
+    list.markAllUndone();
+    expect(todo1.isDone()).toBe(false);
+  })
 });

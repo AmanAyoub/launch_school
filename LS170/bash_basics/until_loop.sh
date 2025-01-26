@@ -1,5 +1,4 @@
 #!/bin/bash
-
 counter=0
 max=10
 

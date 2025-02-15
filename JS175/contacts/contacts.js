@@ -45,6 +45,7 @@ app.set("views", "./views");
 app.set("view engine", "pug");
 
 app.use(express.static("public"));
+app.use(express.urlencoded({extended: false}));
 app.use(morgan("common"));
 
 app.get("/", (req, res) => {
@@ -59,6 +60,12 @@ app.get("/contacts", (req, res) => {
 
 app.get("/contacts/new", (req, res) => {
   res.render("new-contact");
+});
+
+app.post("/contacts/new", (req, res) => {
+  contactData.push({ ...req.body });
+
+  res.redirect("/contacts");
 });
 
 app.listen(4500, "localhost", () => {

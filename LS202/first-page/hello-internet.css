@@ -1,0 +1,30 @@
+h1 {
+  text-align: center;
+  color: orange;
+}
+
+strong {
+  color: blue;
+  text-decoration: underline;
+}
+
+em {
+  color: red;
+  font-style: italic;
+}
+
+body {
+  background-color: #ffffe0;
+}
+
+.more-text {
+  color: gray;
+}
+
+#final-paragraph {
+  text-decoration: underline;
+}
+
+p {
+  font-size: 24px;
+}

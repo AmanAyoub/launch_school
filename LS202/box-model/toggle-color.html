@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Toggle Color</title>
+    <meta charset="utf-8">
+
+    <style>
+      section {
+        background-color: #ffc0c0;
+        border: 1px solid black;
+        height: 300px;
+        margin: 0;
+        padding: 0;
+        width: 300px;
+      }
+
+      article {
+        background-color: #c0c0ff;
+        border: 30px solid blue;
+        box-sizing: border-box;
+        cursor: pointer;
+        height: 200px;
+        margin: 40px;
+        padding: 50px;
+        width: 200px;
+      }
+
+      /* The JavaScript code above turns this class on and off in the <article> */
+      .toggled {
+        background-color: #c0ffc0;
+        border: 30px solid green;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      var article = {
+        toggleColor: function() {
+          document.querySelector('article').classList.toggle('toggled');
+        }
+      };
+    </script>
+
+    <section>
+      <article onclick="article.toggleColor();">
+        Click here
+      </article>
+    </section>
+  </body>
+</html>

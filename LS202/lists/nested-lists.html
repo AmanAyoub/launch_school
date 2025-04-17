@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Nested List</title>
+    <meta charset="utf-8">
+
+    <style>
+      html {
+        font-size: 20px;
+      }
+
+      div {
+        width: 50px;
+        height: 25px;
+      }
+
+      .red {
+        background-color: red;
+      }
+
+      .green {
+        background-color: green;
+      }
+
+      .blue {
+        background-color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <dl>
+      <dt>Unordered</dt>
+      <dd>A simple list with bullets.</dd>
+      <dd>A plain list with no bullets or sequence numbers.</dd>
+      <dd>
+        <ul>
+          <li>Red</li>
+          <li>Green</li>
+          <li>Blue</li>
+        </ul>
+      </dd>
+
+      <dt>Ordered</dt>
+      <dd>A simple list with sequence numbers or letters.</dd>
+      <dd>
+        <ol>
+          <li>Red</li>
+          <li>Green</li>
+          <li>Blue</li>
+        </ol>
+      </dd>
+
+      <dt>Description</dt>
+      <dt>Definition</dt>
+      <dd>A list with terms and definitions.</dd>
+      <dd>
+        <dl>
+          <dt>Red</dt>
+          <dd><div class="red"></div></dd>
+          <dt>Green</dt>
+          <dd><div class="green"></div></dd>
+          <dt>Blue</dt>
+          <dd><div class="blue"></div></dd>
+        </dl>
+      </dd>
+    </dl>
+  </body>
+</html>

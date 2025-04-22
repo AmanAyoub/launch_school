@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Checkbox</title>
+    <meta charset="utf-8">
+    <style>
+      fieldset {
+        border: none;
+      }
+
+      :checked {
+        background-color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="#" method="post">
+      <fieldset>
+        <label>
+          <input type="checkbox" name="sort">
+          Sort search results
+        </label>
+      </fieldset>
+
+
+      <fieldset>
+        <label>
+          <input type="checkbox" name="google" checked>
+          Search on Google
+        </label>
+      </fieldset>
+
+
+      <fieldset>
+        <label>
+          <input type="checkbox" name="recent" checked>
+          Recent results (within last year)
+        </label>
+      </fieldset>
+    </form>
+  </body>
+</html>

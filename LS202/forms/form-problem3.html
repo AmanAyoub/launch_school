@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Rate Movie</title>
+    <meta charset="utf-8">
+
+    <style>
+      input[type="submit"] {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="#" method="post">
+      <fieldset>
+        <dl>
+          <dt>
+            <label for="movie">Movie</label>
+          </dt>
+
+          <dd>
+            <select name="movie" size="4">
+              <option value="looper">Looper</option>
+              <option value="frozen">Frozen</option>
+              <option value="tommy-boy">Tommy Boy</option>
+              <option value="alien" selected>Alien</option>
+            </select>
+          </dd>
+
+          <dt>
+            <label for="rate">Rating</label>
+          </dt>
+          <dd>
+            <input type="number" name="rate" id="rate"
+                   min="1" max="5">
+          </dd>
+        </dl>
+
+        <label>
+          <input type="checkbox" name="add-to-favorite" checked>
+          Add to my favorites
+        </label>
+
+        <input type="submit" value="Rate movie">
+      </fieldset>
+    </form>
+  </body>
+</html>

@@ -47,19 +47,57 @@
         padding-right: 1.5rem;
       }
 
-      .top-to-bottom label,
-      .top-to-bottom input[type="text"] {
-        display: block;
+      .side-by-side label,
+      .side-by-side input[type="text"] {
+        display: inline-block;
+      }
+
+      .side-by-side label {
+        margin-right: 1rem;
+        vertical-align: middle;
+      }
+
+      .side-by-side input[type="text"] {
+        vertical-align: middle;
         width: 100%;
+      }
+
+      .side-by-side dt,
+      .side-by-side dd {
+        box-sizing: border-box;
+        display: inline-block;
+        font-size: 1rem;
+        vertical-align: middle;
+      }
+
+      .side-by-side dt {
+        padding-right: 1rem;
+        width: 25%;
+      }
+
+      .side-by-side dd {
+        width: 75%;
       }
     </style>
   </head>
   <body>
-    <form action="#" method="post" class="styled-form top-to-bottom">
+    <form action="#" method="post" class="styled-form side-by-side">
       <fieldset>
-        <label for="text_field">Input Field</label>
-        <input type="text" name="text_field" id="text_field" placeholder="this is the input area">
+        <dl>
+          <dt>
+            <label for="text_field">Input Field</label>
+          </dt><!--
+          --><dd>
+            <input type="text" name="text_field" id="text_field">  
+          </dd><!--
 
+            --><dt>
+            <label for="another_field">Another Field</label>
+          </dt><!--
+          --><dd>
+            <input type="text" name="another_field" id="another_field">
+          </dd>
+        </dl>
       </fieldset>
     </form>
   </body>

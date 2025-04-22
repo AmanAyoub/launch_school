@@ -46,23 +46,20 @@
         background-repeat: no-repeat;
         padding-right: 1.5rem;
       }
+
+      .top-to-bottom label,
+      .top-to-bottom input[type="text"] {
+        display: block;
+        width: 100%;
+      }
     </style>
   </head>
   <body>
-    <form action="#" method="post" class="styled-form">
+    <form action="#" method="post" class="styled-form top-to-bottom">
       <fieldset>
         <label for="text_field">Input Field</label>
         <input type="text" name="text_field" id="text_field" placeholder="this is the input area">
 
-        <br>
-
-
-        <label for="select_field">Select Field</label>
-        <Select name="select_field" id="select_field">
-          <option>Choice1</option>
-          <option>Choice 2</option>
-          <option>Choice 3</option>
-        </Select>
       </fieldset>
     </form>
   </body>

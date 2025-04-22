@@ -78,6 +78,55 @@
       .side-by-side dd {
         width: 75%;
       }
+
+      /* Add to end of file */
+      .styled-form label {
+        padding-top: 0.3333rem;
+      }
+
+      .top-to-bottom dl.partial {
+        box-sizing: border-box;
+        display: inline-block;
+        padding-right: 1rem;
+        vertical-align: top;
+      }
+
+      .top-to-bottom dl.address {
+        width: 100%;
+      }
+
+      .top-to-bottom dl.city {
+        width: 50%;
+      }
+
+      .top-to-bottom dl.state {
+        width: 25%;
+      }
+
+      .top-to-bottom dl.zipcode {
+        padding-right: 0;
+        width: 25%;
+      }
+
+      .top-to-bottom dl dd {
+        width: auto;
+      }
+
+      .top-to-bottom fieldset,
+      .top-to-bottom dl,
+      .top-to-bottom dl dd,
+      .top-to-bottom dl dt {
+        font-size: 0;
+      }
+
+      .top-to-bottom dl label,
+      .top-to-bottom dl input[type="text"] {
+        font-size: 1rem;
+      }
+
+      .top-to-bottom select {
+        width: 100%;
+      }
     </style>
   </head>
   <body>
@@ -98,6 +147,93 @@
             <input type="text" name="another_field" id="another_field">
           </dd>
         </dl>
+      </fieldset>
+    </form>
+
+    <form action="#" class="styled-form top-to-bottom">
+      <fieldset>
+        <dl>
+          <dt><label for="name">Name</label></dt>
+          <dd><input type="text" id="name"></dd>
+        </dl>
+    
+        <dl class="address">
+          <dt><label for="address1">Address</label></dt>
+          <dd>
+            <input type="text" id="address1">
+            <input type="text" id="address2">
+          </dd>
+        </dl>
+    
+        <dl class="city partial">
+          <dt><label for="city">City</label></dt>
+          <dd><input type="text" id="city"></dd>
+        </dl>
+    
+        <dl class="state partial">
+          <dt><label for="state">State</label></dt>
+          <dd>
+            <select name="state" id="state">
+              <option>AK</option>
+              <option>AL</option>
+              <option>AR</option>
+              <option>AZ</option>
+              <option>CA</option>
+              <option>CO</option>
+              <option>CT</option>
+              <option>DC</option>
+              <option>DE</option>
+              <option>FL</option>
+              <option>GA</option>
+              <option>HI</option>
+              <option>IA</option>
+              <option>ID</option>
+              <option>IL</option>
+              <option>IN</option>
+              <option>KS</option>
+              <option>KY</option>
+              <option>LA</option>
+              <option>MA</option>
+              <option>MD</option>
+              <option>ME</option>
+              <option>MI</option>
+              <option>MN</option>
+              <option>MO</option>
+              <option>MS</option>
+              <option>MT</option>
+              <option>NC</option>
+              <option>ND</option>
+              <option>NE</option>
+              <option>NH</option>
+              <option>NJ</option>
+              <option>NM</option>
+              <option>NV</option>
+              <option>NY</option>
+              <option>OH</option>
+              <option>OK</option>
+              <option>OR</option>
+              <option>PA</option>
+              <option>RI</option>
+              <option>SC</option>
+              <option>SD</option>
+              <option>TN</option>
+              <option>TX</option>
+              <option>UT</option>
+              <option>VA</option>
+              <option>VT</option>
+              <option>WA</option>
+              <option>WI</option>
+              <option>WV</option>
+              <option>WY</option>
+            </select>
+          </dd>
+        </dl>
+    
+        <dl class="zipcode partial">
+          <dt><label for="zipcode">Zip</label></dt>
+          <dd><input type="text" id="zipcode"></dd>
+        </dl>
+    
       </fieldset>
     </form>
   </body>

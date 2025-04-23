@@ -6,7 +6,6 @@
 
     <style>
       #columns {
-        overflow: hidden;
         background-color: #e0e0e0;
         box-sizing: border-box;
         margin: 0 auto;
@@ -26,6 +25,12 @@
       #secondary {
         float: right;
         width: 200px;
+      }
+
+      #columns::after {
+        clear: both;
+        content: "";
+        display: block;
       }
     </style>
   </head>

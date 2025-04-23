@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Before and After</title>
+    <meta charset="utf-8">
+
+    <style>
+      body {
+        font-size: 20px;
+      }
+      p {
+        background-color: brown;
+        color: white;
+        font-weight: bold;
+      }
+
+      p::before {
+        content: "He said: ";
+        display: block;
+      }
+
+      p::after {
+        content: "that's it!";
+        display: block;
+        background-color: coral;
+      }
+    </style>
+  </head>
+  <body>
+    <p>Hello World!</p>
+  </body>
+</html>

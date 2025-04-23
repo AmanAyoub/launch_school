@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Float</title>
+    <meta charset="utf-8">
+    <style>
+      html {
+        font-size: 16px;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        padding: 0.5rem;
+      }
+
+      p {
+        color: black;
+        font-family: serif;
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+
+      .outer {
+        border: 1px solid gray;
+        overflow: hidden;
+        width: 100%;
+      }
+
+      .primary, .secondary {
+        border: 1px solid black;
+        box-sizing: border-box;
+        text-align: center;
+      }
+
+      .primary {
+        background-color: moccasin;
+        float: left;
+        height: 100px;
+        line-height: 100px;
+        width: 65%;
+      }
+
+      .secondary {
+        background-color: coral;
+        float: left;
+        height: 75px;
+        line-height: 75px;
+        width: 30%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="outer">
+      <div class="primary">
+        <p>Main Content</p>
+      </div>
+
+      <div class="secondary">
+        <p>Sidebar 1</p>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Containing Floats</title>
+    <meta charset="utf-8">
+
+    <style>
+      #columns {
+        overflow: hidden;
+        background-color: #e0e0e0;
+        box-sizing: border-box;
+        margin: 0 auto;
+        padding: 20px;
+        width: 780px;
+      }
+
+      #primary, #secondary {
+        background-color: yellow;
+      }
+
+      #primary {
+        float: left;
+        width: 500px;
+      }
+
+      #secondary {
+        float: right;
+        width: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="columns">
+      <div id="primary">
+        <h1>Main Content</h1>
+      </div>
+
+      <div id="secondary">
+        <h3>Sidebar Content</h3>
+      </div>
+    </div>
+  </body>
+</html>

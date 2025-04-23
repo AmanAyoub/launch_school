@@ -6,9 +6,8 @@
 
     <style>
       section {
-        /* overflow: hidden; */
         margin: 0 auto;
-        width: 750px;
+        max-width: 1000px;
         background-color: lightgray;
       }
 
@@ -19,20 +18,21 @@
 
       article {
         float: left;
-        width: 500px;
+        width: 70%;
         background-color: lightgreen;
       }
 
       aside {
-        float: right;
-        width: 250px;
+        /* float: none; */
+        overflow: hidden;
         background-color: lightyellow;
       }
 
-      section::after {
-        content: "";
+
+      footer {
+        background-color: cadetblue;
         clear: both;
-        display: block;
+        padding: 1rem;
       }
 
 
@@ -87,6 +87,14 @@
           sometimes by accident, sometimes on purpose (injected humour and the like).
         </p>
       </aside>
+
+      <footer>
+        <p>
+          The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.
+          Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced
+          in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.
+        </p>
+      </footer>
     </section>
   </body>
 </html>

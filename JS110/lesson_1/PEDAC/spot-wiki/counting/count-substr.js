@@ -1,6 +1,6 @@
 /*
-Create a function that takes two strings as an argument and returns a number representing occurrences
-of the second argument as a sub-string of the first argument.
+Create a function that takes two strings as an argument and returns a number representing
+occurrences of the second argument as a sub-string of the first argument.
 
 In: two strings
 Out: number
@@ -15,6 +15,8 @@ Rules:
 - Return the counter
 */
 
+
+// Using includes and replace:
 function countSubstr(firstStr, secondStr) {
   let counter = 0;
   while (firstStr.includes(secondStr)) {
@@ -23,6 +25,12 @@ function countSubstr(firstStr, secondStr) {
   }
 
   return counter;
+}
+
+// Using match with regular expression:
+function countSubstr(firstStr, secondStr) {
+  let substrs = firstStr.match(new RegExp(secondStr, 'g'));
+  return substrs !== null ? substrs.length : 0;
 }
 
 console.log(countSubstr('Hello, Hello! How are you doing Mellody?', 'ello')); // => 3

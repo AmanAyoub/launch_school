@@ -1,3 +1,8 @@
-let { Client } = require('pg');
+const { Client } = require('pg');
+let client = new Client({ database: 'films' });
 
-console.log('Hello world!');
+client.connect();
+
+let data = client.query('SELECT * FROM directors');
+
+console.log(data);

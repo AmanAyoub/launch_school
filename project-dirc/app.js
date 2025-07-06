@@ -1,8 +1,15 @@
 const { Client } = require('pg');
 let client = new Client({ database: 'films' });
 
-client.connect();
 
-let data = client.query('SELECT * FROM directors');
+async function logQuery(queryText) {
+  await client.connect();
 
-console.log(data);
+  let data = await client.query(queryText);
+  console.log(data);
+  client.end();
+}
+
+
+logQuery("SELECT * FROM films");
+// console.log(data);
